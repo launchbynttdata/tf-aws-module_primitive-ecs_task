@@ -17,9 +17,6 @@ locals {
     var.container_secrets
   )
 
-  # Validation helpers
-  has_secrets = length(local.all_container_secrets) > 0
-
   # Process container definitions - handle both JSON string and object formats
   # Merge secrets into container definitions
   container_definitions_with_secrets = [
