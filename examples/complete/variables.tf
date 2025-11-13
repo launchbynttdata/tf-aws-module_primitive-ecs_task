@@ -1,8 +1,3 @@
-variable "region" {
-  description = "AWS region"
-  type        = string
-  default     = "us-east-1"
-}
 
 variable "environment" {
   description = "Environment name"
@@ -98,11 +93,6 @@ variable "execution_role_name_prefix" {
 
 variable "task_role_name_prefix" {
   description = "Prefix for ECS task role name"
-  type        = string
-}
-
-variable "execution_policy_name_prefix" {
-  description = "Prefix for execution role policy name"
   type        = string
 }
 
