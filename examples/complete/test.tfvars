@@ -1,9 +1,6 @@
 # Sample variables for running the complete example
 # IAM roles are now created automatically by the example
 
-# AWS region where resources will be created
-region = "us-east-1"
-
 # Environment name for resource naming and tagging
 environment = "dev"
 
@@ -113,8 +110,7 @@ execution_role_name_prefix = "ecs-execution-role"
 task_role_name_prefix      = "ecs-task-role"
 
 # Policy name prefixes
-execution_policy_name_prefix = "ecs-execution-policy"
-task_policy_name_prefix      = "ecs-task-policy"
+task_policy_name_prefix = "ecs-task-policy"
 
 # Example name
 example_name = "complete"
