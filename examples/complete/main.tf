@@ -1,7 +1,3 @@
-provider "aws" {
-  region = var.region
-}
-
 # ECS Task Execution Role
 resource "aws_iam_role" "ecs_execution_role" {
   name = "${var.execution_role_name_prefix}-${var.environment}"
