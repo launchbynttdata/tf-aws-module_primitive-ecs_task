@@ -3,7 +3,7 @@ module github.com/launchbynttdata/tf-aws-module_primitive-ecs_task
 go 1.24.2
 
 require (
-	github.com/aws/aws-sdk-go-v2 v1.39.6
+	github.com/aws/aws-sdk-go-v2 v1.40.0
 	github.com/aws/aws-sdk-go-v2/config v1.26.6
 	github.com/aws/aws-sdk-go-v2/service/ecs v1.67.4
 	github.com/gruntwork-io/terratest v0.43.12
