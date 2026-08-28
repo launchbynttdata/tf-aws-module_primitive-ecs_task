@@ -54,4 +54,3 @@ output "tags_all" {
   description = "All tags assigned to the task definition"
   value       = module.ecs_task_definition.tags_all
 }
-

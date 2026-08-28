@@ -36,9 +36,9 @@ const (
 func TestComposableComplete(t *testing.T, ctx lcafTypes.TestContext) {
 	ecsClient := GetAWSECSClient(t)
 
-	taskDefinitionArn := terraform.Output(t, ctx.TerratestTerraformOptions(), "task_definition_arn")
-	taskDefinitionFamily := terraform.Output(t, ctx.TerratestTerraformOptions(), "task_definition_family")
-	taskDefinitionRevision := terraform.Output(t, ctx.TerratestTerraformOptions(), "task_definition_revision")
+	taskDefinitionArn := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "task_definition_arn")
+	taskDefinitionFamily := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "task_definition_family")
+	taskDefinitionRevision := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "task_definition_revision")
 	taskDef := fmt.Sprintf("%s:%s", taskDefinitionFamily, taskDefinitionRevision)
 
 	t.Run("TestECSTaskDefinitionExists", func(t *testing.T) {
@@ -55,7 +55,7 @@ func TestComposableComplete(t *testing.T, ctx lcafTypes.TestContext) {
 
 	t.Run("TestECSTaskDefinitionTags", func(t *testing.T) {
 		var taskTags map[string]interface{}
-		terraform.OutputStruct(t, ctx.TerratestTerraformOptions(), "tags_all", &taskTags)
+		terraform.OutputStructContext(t, context.Background(), ctx.TerratestTerraformOptions(), "tags_all", &taskTags)
 		testECSTaskDefinitionTags(t, ecsClient, taskDefinitionFamily, taskTags)
 	})
 }
