@@ -3,6 +3,31 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC_BY--NC--ND_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
+## Overview
+
+Creates an [AWS ECS task definition](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_task_definition) with configurable container definitions, CPU and memory, networking mode, IAM roles, volumes, and runtime platform settings.
+
+## Usage
+
+See the [complete example](./examples/complete) for a working configuration with IAM roles and a Fargate-compatible task definition.
+
+```hcl
+module "ecs_task" {
+  source = "../../"
+
+  family                   = var.family
+  container_definitions    = var.container_definitions
+  execution_role_arn       = aws_iam_role.ecs_execution_role.arn
+  task_role_arn            = aws_iam_role.ecs_task_role.arn
+  requires_compatibilities = var.requires_compatibilities
+  network_mode             = var.network_mode
+  cpu                      = var.cpu
+  memory                   = var.memory
+
+  tags = var.task_tags
+}
+```
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
